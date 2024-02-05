@@ -28,7 +28,7 @@ jobs:
         AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
       steps:
         - name: Checkout
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
         - name: Install azd
           uses: Azure/setup-azd@v0.1.0
@@ -90,7 +90,7 @@ jobs:
             sleep 60
             curl -sSf $URI
         - name: Checkout
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
         - name: Setup python
           uses: actions/setup-python@v4
