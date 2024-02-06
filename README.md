@@ -1,22 +1,41 @@
+---
+page_type: sample
+languages:
+- azdeveloper
+- python
+- bicep
+- html
+- css
+- scss
+products:
+- azure
+- azure-container-apps
+- azure-mysql
+urlFragment: azure-flask-mysql-flexible-aca
+name: Deploy Flask Application with MySQL on Azure Container Apps (Python)
+description: This project deploys a web application for a space travel agency using Flask with Python, and is set up for easy deployment with the Azure Developer CLI.
+---
+<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
+
 # Deploy Flask Application with MySQL via Azure Container Apps
 
 This project deploys a web application for a space travel agency using Flask. The application can be deployed to Azure with Azure Container Apps using the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview).
 
 ## Opening the project
 
-This project has [Dev Container support](https://code.visualstudio.com/docs/devcontainers/containers), so it will be setup automatically if you open it in Github Codespaces or in local VS Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+This project has [Dev Container support](https://code.visualstudio.com/docs/devcontainers/containers), so it will be setup automatically if you open it in GitHub Codespaces or in local VS Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 If you're *not* using one of those options for opening the project, then you'll need to:
 
 1. Start up a local MySQL server, create a database for the app, and set the following environment variables according to your database configuration.
 
-```shell
-export MYSQL_HOST=localhost
-export MYSQL_PORT=3306
-export MYSQL_DATABASE=<YOUR DATABASE>
-export MYSQL_USER=<YOUR USERNAME>
-export MYSQL_PASS=<YOUR PASSWORD>
-```
+    ```shell
+    export MYSQL_HOST=localhost
+    export MYSQL_PORT=3306
+    export MYSQL_DATABASE=<YOUR DATABASE>
+    export MYSQL_USER=<YOUR USERNAME>
+    export MYSQL_PASS=<YOUR PASSWORD>
+    ```
 
 1. Create a [Python virtual environment](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments) and activate it.
 
@@ -44,8 +63,9 @@ export MYSQL_PASS=<YOUR PASSWORD>
 If you're running the app inside VS Code or GitHub Codespaces, you can use the "Run and Debug" button to start the app.
 
 ```sh
-python3 -m flask --app src.flaskapp run --debug --reload
+python3 -m flask --app src.flaskapp run --debug --reload --port=5000
 ```
+
 
 ## Running tests
 
@@ -64,7 +84,7 @@ python3 -m flask --app src.flaskapp run --debug --reload
 
 ## Deployment
 
-This repo is set up for deployment on Azure via Azure App Service.
+This repo is set up for deployment on Azure via Azure Container Apps.
 
 Steps for deployment:
 
@@ -96,7 +116,7 @@ Steps for deployment:
 
 This project includes a GitHub workflow for deploying the resources to Azure
 on every push to main. That workflow requires several Azure-related authentication secrets
-to be stored as Github action secrets. To set that up, run:
+to be stored as GitHub action secrets. To set that up, run:
 
 ```shell
 azd pipeline config

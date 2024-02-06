@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True
 
+
 dbuser = os.environ["MYSQL_USER"]
 dbpass = os.environ["MYSQL_PASS"]
 dbhost = os.environ["MYSQL_HOST"]

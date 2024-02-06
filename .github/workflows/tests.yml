@@ -49,11 +49,17 @@ jobs:
             python3 -m pip install -r requirements-dev.txt
             playwright install chromium --with-deps
             python3 -m pip install -e src
-        - name: Seed data and run Pytest tests
+        - name: Seed data
           run: |
             python3 -m flask --app src.flaskapp db upgrade --directory src/flaskapp/migrations
             python3 -m flask --app src.flaskapp seed --filename src/seed_data.json
-            python3 -m pytest
+          env:
+            MYSQL_HOST: localhost
+            MYSQL_USER: root
+            MYSQL_PASS: mysql
+            MYSQL_DATABASE: relecloud
+        - name: Run tests 
+          run: python3 -m pytest
           env:
             MYSQL_HOST: localhost
             MYSQL_USER: root
