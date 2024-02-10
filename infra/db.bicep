@@ -22,8 +22,8 @@ module dbserver 'core/database/mysql/flexibleserver.bicep' = {
       storageSizeGB: 20
     }
     version: '8.0.21'
-    adminName: dbserverUser
-    adminPassword: dbserverPassword
+    administratorLogin: dbserverUser
+    administratorLoginPassword: dbserverPassword
     databaseNames: [ dbserverDatabaseName ]
     allowAzureIPsFirewall: true
   }
@@ -31,4 +31,4 @@ module dbserver 'core/database/mysql/flexibleserver.bicep' = {
 
 output dbserverDatabaseName string = dbserverDatabaseName
 output dbserverUser string = dbserverUser
-output dbserverDomainName string = dbserver.outputs.domainName
+output dbserverDomainName string = dbserver.outputs.MYSQL_DOMAIN_NAME
