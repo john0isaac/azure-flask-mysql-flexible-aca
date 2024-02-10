@@ -31,4 +31,4 @@ module dbserver 'core/database/mysql/flexibleserver.bicep' = {
 
 output dbserverDatabaseName string = dbserverDatabaseName
 output dbserverUser string = dbserverUser
-output dbserverDomainName string = dbserver.outputs.MYSQL_DOMAIN_NAME
+output dbserverDomainName string = dbserver.outputs.domainName
