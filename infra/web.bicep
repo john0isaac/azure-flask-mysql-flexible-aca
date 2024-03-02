@@ -54,7 +54,7 @@ module app 'core/host/container-app-upsert.bicep' = {
         value: dbserverUser
       }
       {
-        name: 'MYSQL_NAME'
+        name: 'MYSQL_DATABASE'
         value: dbserverDatabaseName
       }
       {
